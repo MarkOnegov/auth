@@ -148,6 +148,21 @@
                             <artifactId>micronaut-security-annotations</artifactId>
                             <version>${micronaut.security.version}</version>
                         </path>
+                        <dependency>
+                            <groupId>io.micronaut.data</groupId>
+                            <artifactId>micronaut-data-jdbc</artifactId>
+                            <scope>compile</scope>
+                        </dependency>
+                        <dependency>
+                            <groupId>io.micronaut.sql</groupId>
+                            <artifactId>micronaut-jdbc-hikari</artifactId>
+                            <scope>compile</scope>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.h2database</groupId>
+                            <artifactId>h2</artifactId>
+                            <scope>runtime</scope>
+                        </dependency>
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <arg>-Amicronaut.processing.group=ru.monegov</arg>
