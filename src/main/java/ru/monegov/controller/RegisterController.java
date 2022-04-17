@@ -5,6 +5,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Post;
 import jakarta.inject.Inject;
 import ru.monegov.authentication.AuthenticationService;
+import ru.monegov.dto.CurrentUserDTO;
 import ru.monegov.entity.UserEntity;
 
 import javax.annotation.security.PermitAll;
@@ -17,8 +18,10 @@ public class RegisterController {
 	private AuthenticationService authenticationService;
 
 	@Post("/register")
-	public String register(@Body UserEntity candidate) {
+	public CurrentUserDTO register(@Body UserEntity candidate) {
 		String username = authenticationService.register(candidate);
-		return username;
+		CurrentUserDTO user = new CurrentUserDTO();
+		user.setUsername(username);
+		return user;
 	}
 }
